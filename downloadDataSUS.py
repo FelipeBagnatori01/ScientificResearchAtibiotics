@@ -20,5 +20,5 @@ for mes in meses:
             df = download(uf, ano, mes)
             df = df.filter(vars)
             df = df[df['DIAG_PRINC'].isin(cids)]
-            df.to_csv("sih_pneumonia_20_21.csv", mode='a', index=False, header=False)
+            df.to_csv("sih_pneumonia_21.csv", mode='a', index=False, header=False)
             print(f"O arquivo do mês {mes} de {ano} do estado {uf.upper()} foi filtrado")
