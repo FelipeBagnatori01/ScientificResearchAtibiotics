@@ -10,7 +10,7 @@ from pysus.online_data.SIH import download
 vars = ["MORTE", "CID_MORTE", "DIAG_PRINC"]
 ufs = ["df"]
 anos = [2021] 
-meses = [ 11, 12] 
+meses = [12] 
 cids = ["J13", "J14"]
 grupos = ['RD', 'RJ', 'ER', 'SP', 'CH', 'CM',]
 
