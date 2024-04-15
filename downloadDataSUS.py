@@ -21,8 +21,7 @@ for mes in meses:
         for ano in anos:   
             d = download(uf, ano, mes, grupos,
                          data_dir="/Users/febagnatori/Documents/GitHub/ScientificResearchAtibiotics/Dados")
-            frames = [d[i].to_dataframe() for i in range(0, len(d))]
-            df = pd.concat(frames)
+            df = d[0].to_dataframe()
             df = df.filter(vars)
             print(df)
             df.to_csv("sih_pneumonia_20_21.csv", mode='a', index=False, header=False)
