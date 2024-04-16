@@ -9,3 +9,4 @@ sih.download(files, local_dir="/Users/febagnatori/Documents/GitHub/ScientificRes
 parquet = sih.download(files)[0]
 df = parquet.to_dataframe()
 print(df)
+
