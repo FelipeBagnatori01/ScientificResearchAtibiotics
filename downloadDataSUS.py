@@ -3,15 +3,16 @@ import pandas as pd
 
 from pysus.ftp.databases.sih import SIH
 
+def downloadData(uf, year, months, local_dir, group="RD"):
+    sih = SIH().load()
+    files = sih.get_files(group, uf=uf, year=year, month=months)
+    parquet = sih.download(files, local_dir=local_dir)
+    df = parquet[0].to_dataframe()
+    for i in range(1, len(files)):
+        dfAux = parquet[i].to_dataframe()
+        df = pd.concat([df, dfAux], ignore_index=True)
+    return df
 
-sih = SIH().load()
-files = sih.get_files("RD", uf="SP", year=2020, month=[1,2,3])
-sih.download(files, local_dir="/Users/febagnatori/Documents/GitHub/ScientificResearchAtibiotics/Dados")
-parquet = sih.download(files)[0]
-df = parquet.to_dataframe()
+df = downloadData("SP", 2020, [1, 2, 3], "/Users/febagnatori/Documents/GitHub/ScientificResearchAtibiotics/Dados")
 #df.to_csv('out.csv')
-print(df)
-
-parquet = sih.download(files)[1]
-df = parquet.to_dataframe()
 print(df)
